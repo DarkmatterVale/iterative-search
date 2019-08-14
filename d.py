@@ -117,8 +117,8 @@ def getSiteInfo():
 
 
 def uploadFile():
-    ACCESS_ID = 'AKIAIFHWBYF523PIJU4Q'
-    ACCESS_KEY = '3y1ieb76FdabFn1J7qD6BYWvDDrUsvcJ7oeM0nmw'
+    ACCESS_ID = 'Enter ID Here'
+    ACCESS_KEY = 'Enter Key Here'
     # Create an S3 client
     s3 = boto3.resource('s3',
                         aws_access_key_id=ACCESS_ID,
