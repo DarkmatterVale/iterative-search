@@ -66,3 +66,25 @@ class LDATopicAnalyzerTestCase(unittest.TestCase):
         lda_topic_analyzer.generate_lda_model()
 
         self.assertIsNotNone(lda_topic_analyzer.get_topics())
+
+    def test_lda_topic_analyzer_prediction(self):
+        newsgroups_train = fetch_20newsgroups(subset="train", shuffle = False)
+        newsgroups_test = fetch_20newsgroups(subset="test", shuffle = False)
+
+        nltk.download('wordnet')
+
+        processed_docs = []
+        for doc in newsgroups_train.data:
+            processed_docs.append(self.preprocess(doc))
+
+        dictionary = gensim.corpora.Dictionary(processed_docs)
+        dictionary.filter_extremes(no_below=15, no_above=0.1, keep_n= 100000)
+        bow_corpus = [dictionary.doc2bow(doc) for doc in processed_docs]
+
+        builder = LDABuilder(logger)
+        builder.set_num_topics(10).set_passes(5).set_workers(4).set_random_state(1).set_dictionary(dictionary).set_corpus(bow_corpus)
+
+        lda_topic_analyzer = builder.build()
+        lda_topic_analyzer.generate_lda_model()
+
+        self.assertIsNotNone(lda_topic_analyzer.predict_topics(bow_corpus[1]))

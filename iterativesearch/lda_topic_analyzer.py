@@ -29,9 +29,25 @@ class LDATopicAnalyzer:
 
         self.is_model_trained = True
 
+    def predict_topics(self, doc_bow):
+        """
+        Predict and return the topics for a document
+        """
+        # TODO : Add parameter null check here
+
+        self.verify_model_trained()
+
+        return self.lda_model[doc_bow]
+
+    def update_model(self, doc):
+        """
+        Update the LDA model with the new document
+        """
+        # TODO : Add parameter null check here
+        raise NotImplementedError("TODO: Add update functionality")
+
     def get_topics(self):
-        if not self.is_model_trained:
-            raise ValueError("Cannot get topics of an untrained LDA model")
+        self.verify_model_trained()
 
         return self.lda_model.print_topics(-1)
 
@@ -44,3 +60,7 @@ class LDATopicAnalyzer:
 
     def save_lda_model_to_file(self, filename):
         raise NotImplementedError("TODO: Add saving functionality")
+
+    def verify_model_trained(self):
+        if not self.is_model_trained:
+            raise ValueError("Cannot get topics of an untrained LDA model")
