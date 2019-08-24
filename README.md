@@ -2,4 +2,4 @@
 
 ## Tests
 
-Python tests can be run via ```python -m unittest iterativesearch.tests```
+Python tests can be run via ```python -m unittest iterativesearch.tests data_manager.tests```

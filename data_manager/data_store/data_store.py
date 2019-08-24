@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-class DataLake:
+class DataStore:
 
     @abstractmethod
     def initialize(self, **kwargs):
@@ -12,36 +12,36 @@ class DataLake:
     @abstractmethod
     def get_all_data(self):
         """
-        Returns all data stored in the data lake.
+        Returns all data stored in the data store.
 
-        :return: list(RawSearchResultData)
+        :return: list(DataEntry)
         """
         raise NotImplementedError("get_all_data() not implemented")
 
     @abstractmethod
-    def add_data(self, search_query_result_data):
+    def add_data(self, data):
         """
-        Add a piece of data to the data lake.
+        Add a piece of data to the data store.
 
-        :param search_query_result_data: Search query result data
-        :type search_query_result_data: RawSearchResultData
+        :param data: data
+        :type data: DataEntry
         """
         raise NotImplementedError("add_data() not implemented")
 
     @abstractmethod
     def query(self, query_parameters):
         """
-        Queries the data lake using the query parameters object. Will return all results that satisfy the query.
+        Queries the data store using the query parameters object. Will return all results that satisfy the query.
 
         :param query_parameters: Query parameters.
-        :type query_parameters: DataLakeQueryParameters
-        :return: list(RawSearchResultData)
+        :type query_parameters: DataStoreQueryParameters
+        :return: list(DataEntry)
         """
         raise NotImplementedError("query() not implemented")
 
     @abstractmethod
     def clear_all_data(self):
         """
-        Clear all data from the data lake.
+        Clear all data from the data store.
         """
         raise NotImplementedError("clear_all_data() not implemented")
