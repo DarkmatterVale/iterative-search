@@ -1,1 +1,2 @@
-from .data_lake_test_case import IterativeSearchDataLakeTestCase
+from .data_lake_test import IterativeSearchDataLakeTestCase
+from .data_warehouse_test import IterativeSearchDataWarehouseTestCase
