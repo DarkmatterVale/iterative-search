@@ -1,3 +1,4 @@
 from .data_entry_test import DataEntryTestCase
 from .raw_search_result_data_test import RawSearchResultDataTestCase
 from .flat_file_data_store_test import FlatFileDataStoreTestCase
+from .html_processor_test import HTMLDataProcessorTestCase
