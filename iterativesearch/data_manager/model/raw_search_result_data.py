@@ -26,3 +26,11 @@ class RawSearchResultData(DataEntry):
 
     def get_result_html(self):
         return self.get_attribute(RawSearchResultData.RESULT_HTML_ATTR_KEY)
+
+    @staticmethod
+    def from_data_entry(data_entry):
+        return RawSearchResultData(
+            data_entry.get_attribute(RawSearchResultData.SEARCH_QUERY_ATTR_KEY),
+            data_entry.get_attribute(RawSearchResultData.RESULT_HYPERLINK_ATTR_KEY),
+            data_entry.get_attribute(RawSearchResultData.RESULT_TIMESTAMP_ATTR_KEY),
+            data_entry.get_attribute(RawSearchResultData.RESULT_HTML_ATTR_KEY))

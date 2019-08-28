@@ -7,7 +7,7 @@ from nltk.stem.porter import *
 import numpy as np
 import nltk
 import unittest
-from ..lda_builder import LDABuilder
+from ..lda.lda_builder import LDABuilder
 from loguru import logger
 import os
 

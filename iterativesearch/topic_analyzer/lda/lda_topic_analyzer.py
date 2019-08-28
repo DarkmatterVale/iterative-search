@@ -1,5 +1,5 @@
 import gensim
-from .topic_analyzer import TopicAnalyzer
+from ..topic_analyzer import TopicAnalyzer
 
 class LDATopicAnalyzer(TopicAnalyzer):
 
