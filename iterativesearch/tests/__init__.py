@@ -1,2 +1,3 @@
 from .data_lake_test import IterativeSearchDataLakeTestCase
 from .data_warehouse_test import IterativeSearchDataWarehouseTestCase
+from .topic_based_semantic_analysis_test import TopicBasedSemanticAnalysisTestCase
