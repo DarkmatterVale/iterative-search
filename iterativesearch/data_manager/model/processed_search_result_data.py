@@ -19,3 +19,6 @@ class ProcessedSearchResultData(SearchResultData):
             data_entry.get_attribute(SearchResultData.RESULT_HYPERLINK_ATTR_KEY),
             data_entry.get_attribute(SearchResultData.RESULT_TIMESTAMP_ATTR_KEY),
             data_entry.get_attribute(ProcessedSearchResultData.RESULT_TEXT_ATTR_KEY))
+
+    def __str__(self):
+        return "[Query: " + self.get_attribute(SearchResultData.SEARCH_QUERY_ATTR_KEY) + " Result Hyperlink: " + self.get_attribute(SearchResultData.RESULT_HYPERLINK_ATTR_KEY) + " Query Timestamp: " + self.get_attribute(SearchResultData.RESULT_TIMESTAMP_ATTR_KEY) + " Text: " + self.get_attribute(ProcessedSearchResultData.RESULT_TEXT_ATTR_KEY) + "]"
